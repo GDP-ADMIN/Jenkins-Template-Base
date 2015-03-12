@@ -1,4 +1,5 @@
 FROM debian:wheezy
+MAINTAINER Roy Inganta Ginting <roy.i.ginting@gdplabs.id>
 
 RUN echo "deb http://http.debian.net/debian wheezy-backports main" >> /etc/apt/sources.list && \
   apt-get update && apt-get install -y \
@@ -12,6 +13,7 @@ RUN echo "deb http://http.debian.net/debian wheezy-backports main" >> /etc/apt/s
   jq && \
   rm -rf /var/lib/apt/lists/* 
 
+ENV DEBIAN_FRONTEND noninteractive
 ENV JENKINS_HOME /var/jenkins_home
 ENV JAVA_HOME /usr/lib/jvm/java-7-openjdk-amd64
 ENV JAVA_OPTS -Dmail.smtp.starttls.enable=true
