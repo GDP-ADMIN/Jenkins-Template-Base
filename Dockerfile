@@ -32,7 +32,6 @@ RUN echo "deb http://packages.dotdeb.org wheezy-php56 all" > /etc/apt/sources.li
     php5-gd \
     php5-curl \
     php-pear && \
-    chmod +x /usr/local/bin/php-qa.sh && \
     php-qa.sh && \
     rm -rf /var/lib/apt/lists/*
 
@@ -43,7 +42,6 @@ COPY init.groovy /usr/share/jenkins/ref/init.groovy.d/tcp-slave-agent-port.groov
 RUN chown -R jenkins "$JENKINS_HOME" /usr/share/jenkins/ref
 
 COPY jenkins.sh /usr/local/bin/jenkins.sh
-RUN chmod +x /usr/local/bin/jenkins.sh
 
 VOLUME /var/jenkins_home
 EXPOSE 8080
